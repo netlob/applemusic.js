@@ -6,11 +6,13 @@ import type { PlaylistResponse } from './interfaces/AppleMusic/playlistResponse'
 import type { SongResponse } from './interfaces/AppleMusic/songResponse';
 import type { StationResponse } from './interfaces/AppleMusic/stationResponse';
 import type { SearchResponse } from './interfaces/AppleMusic/searchResponse';
+import { HttpClient } from './http/HttpClient';
 import { CatalogManager } from './catalog/CatalogManager';
 import { SearchManager } from './search/SearchManager';
 import { LibraryManager } from './library/LibraryManager';
 export declare class AppleMusicAPI {
     configuration: Readonly<ClientConfiguration>;
+    _client: HttpClient;
     albums: CatalogManager<AlbumResponse>;
     artists: CatalogManager<ArtistResponse>;
     musicVideos: CatalogManager<MusicVideoResponse>;

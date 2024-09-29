@@ -8,17 +8,17 @@ const LibraryManager_1 = require("./library/LibraryManager");
 class AppleMusicAPI {
     constructor(configuration) {
         this.configuration = configuration;
-        const client = new HttpClient_1.HttpClient(configuration);
-        this.albums = new CatalogManager_1.CatalogManager(client, 'albums');
-        this.artists = new CatalogManager_1.CatalogManager(client, 'artists');
-        this.musicVideos = new CatalogManager_1.CatalogManager(client, 'music-videos');
-        this.playlists = new CatalogManager_1.CatalogManager(client, 'playlists');
-        this.songs = new CatalogManager_1.CatalogManager(client, 'songs');
-        this.stations = new CatalogManager_1.CatalogManager(client, 'stations');
-        this.search = new SearchManager_1.SearchManager(client);
+        this._client = new HttpClient_1.HttpClient(configuration);
+        this.albums = new CatalogManager_1.CatalogManager(this._client, 'albums');
+        this.artists = new CatalogManager_1.CatalogManager(this._client, 'artists');
+        this.musicVideos = new CatalogManager_1.CatalogManager(this._client, 'music-videos');
+        this.playlists = new CatalogManager_1.CatalogManager(this._client, 'playlists');
+        this.songs = new CatalogManager_1.CatalogManager(this._client, 'songs');
+        this.stations = new CatalogManager_1.CatalogManager(this._client, 'stations');
+        this.search = new SearchManager_1.SearchManager(this._client);
         this.library = {
-            songs: new LibraryManager_1.LibraryManager(client, 'songs'),
-            playlists: new LibraryManager_1.LibraryManager(client, 'playlists')
+            songs: new LibraryManager_1.LibraryManager(this._client, 'songs'),
+            playlists: new LibraryManager_1.LibraryManager(this._client, 'playlists')
         };
     }
 }
