@@ -22,6 +22,10 @@ declare namespace Playlist {
         playlistType: 'user-shared' | 'editorial' | 'external' | 'personal-mix' | 'replay';
         url: string;
         trackTypes?: string[];
+        canEdit?: boolean;
+        isPublic?: boolean;
+        hasCatalog?: boolean;
+        dateAdded?: string;
     }
     interface Relationships {
         curator?: CuratorRelationship;

@@ -26,8 +26,12 @@ namespace Playlist {
     playlistType: 'user-shared' | 'editorial' | 'external' | 'personal-mix' | 'replay'; // Added 'replay'
     url: string; // Required
     trackTypes?: string[]; // New field, with possible values 'music-videos', 'songs'
+
+    canEdit?: boolean;
+    isPublic?: boolean;
+    hasCatalog?: boolean;
+    dateAdded?: string;
   }
-  
 
   // https://developer.apple.com/documentation/applemusicapi/playlist/relationships
   export interface Relationships {
