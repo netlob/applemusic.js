@@ -10,6 +10,7 @@ export interface ResponseRoot {
 }
 declare namespace ResponseRoot {
     interface Meta {
+        total?: number;
     }
     interface Results {
     }

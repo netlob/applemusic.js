@@ -13,7 +13,9 @@ export interface ResponseRoot {
 
 namespace ResponseRoot {
   // https://developer.apple.com/documentation/applemusicapi/responseroot/meta
-  export interface Meta {}
+  export interface Meta {
+    total?: number;
+  }
 
   // https://developer.apple.com/documentation/applemusicapi/responseroot/results
   export interface Results {}
