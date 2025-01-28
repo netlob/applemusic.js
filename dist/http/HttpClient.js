@@ -140,7 +140,9 @@ class HttpClient {
             return retryAttempt < this.maxRetryAttempts;
         }
         const { status } = err.response;
-        if (status === 429) {
+        const isUpstreamError = JSON.stringify(err.response?.data).includes('Upstream Service Error');
+        // Handle both 429 rate limits and upstream service errors
+        if (status === 429 || isUpstreamError) {
             return this.config.retry !== false;
         }
         if (status >= 500 && status < 600) {

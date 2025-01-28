@@ -167,8 +167,10 @@ export class HttpClient {
     }
 
     const { status } = err.response;
+    const isUpstreamError = JSON.stringify(err.response?.data).includes('Upstream Service Error');
 
-    if (status === 429) {
+    // Handle both 429 rate limits and upstream service errors
+    if (status === 429 || isUpstreamError) {
       return this.config.retry !== false;
     }
 
